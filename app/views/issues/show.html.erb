@@ -1,0 +1,28 @@
+<section class="content">
+  <div class="card">
+
+    <h1 class="card-title"><%= @issue.name %></h1>
+
+
+    <ul>
+      <li>
+        Status: <%= @issue.status %> 
+      </li>
+      <li>
+        Priority: <%= @issue.priority %> 
+      </li>
+      <li>
+        Due date: <%= @issue.due_date %>
+      </li>
+    </ul>
+
+    <div class="description card-text">
+      <%= @issue.description %>
+    </div>
+  </div>
+</section>
+
+<section class="admin">
+  <%= link_to 'Edit', edit_issue_path(@issue), class: 'button'	%>
+  <%= link_to 'Delete', issue_path(@issue), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: 'button'	%>
+</section>

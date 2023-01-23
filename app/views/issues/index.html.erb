@@ -1,0 +1,25 @@
+<section class="content">
+  <h1>open Issues</h1>
+  <% @issues.each do |issue| %>
+    <section class="issue">
+      <div class="card">
+        <h2>
+          <%= link_to issue.name, issue %>
+        </h2>
+        <p>
+          Status: <%= issue.status %> 
+          &bull; priority: <%= issue.priority %> 
+          <span class="date">due date: <%= issue.due_date.to_date %></span>
+        </p> 
+
+        <div class="description">
+          <%= truncate(issue.description, length: 50) %>
+        </div>
+      </div>
+    </section>  
+  <% end %>
+</section>
+
+<section class="admin">
+  <%= link_to 'Add Issue', new_issue_path, class: "button" %>
+</section>

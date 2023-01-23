@@ -1,0 +1,21 @@
+
+<%= form_with model: @issue do |f| %>
+
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+
+  <%= f.label :status %>
+  <%= f.select :status, Issue::STATUSES %>
+
+  <%= f.label :priority %>
+  <%= f.select :priority, Issue::PRIORITYS %>
+
+  <%= f.label :due_date %>
+  <%= f.date_select :due_date %>
+
+  <%= f.label :description %>
+  <%= f.text_area :description, rows: 5 %>
+
+  <%= f.submit%>
+  
+<% end %>
